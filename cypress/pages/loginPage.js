@@ -14,12 +14,15 @@ class LoginPage {
         cy.visit('/auth/login')
         }
 
-    loginWithAnyUser(username,password) {
+    loginWithAnyUser(username, password) {
         cy.get(this.selectorsList().usernameField).type(username)
         cy.get(this.selectorsList().passwordField).type(password)
         cy.get(this.selectorsList().loginButton).click()
     }
 
+    checkAcessInvalid() {
+        cy.get(this.selectorsList().wrongCredentialAlert)
+    }
 
 }
 
